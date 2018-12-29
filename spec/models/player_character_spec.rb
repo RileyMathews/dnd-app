@@ -17,6 +17,13 @@ RSpec.describe PlayerCharacter do
 
       expect(player.valid?).to be true
     end
+
+    it "allows nil current_health" do
+      player = valid_player_character
+      player.current_health = nil
+
+      expect(player.valid?).to be true
+    end
   end
 
   context "when the player character does not have valid information" do
@@ -30,6 +37,20 @@ RSpec.describe PlayerCharacter do
     it "returns invalid with a long name" do
       player = valid_player_character
       player.name = "a" * 101
+
+      expect(player.valid?).to be false
+    end
+
+    it "returns invalid with a nil name" do
+      player = valid_player_character
+      player.name = nil
+
+      expect(player.valid?).to be false
+    end
+
+    it "returns invalid with a nil max health" do
+      player = valid_player_character
+      player.max_health = nil
 
       expect(player.valid?).to be false
     end
