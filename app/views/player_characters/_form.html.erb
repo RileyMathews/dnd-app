@@ -1,0 +1,12 @@
+<%= form_for(@player_character) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, class: 'form-control' %>
+
+  <%= f.label :level %>
+  <%= f.number_field :level, class: 'form-control' %>
+
+  <%= f.label :max_health %>
+  <%= f.number_field :max_health, class: 'form-control' %>
+
+  <%= f.submit "Create", class: "btn btn-primary" %>
+<% end %>
